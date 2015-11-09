@@ -7,9 +7,7 @@ class WelcomeController extends Controller{
         $this->middleware('guest');
     }
 
-    public function contact(){
-        return view('pages.contact');
-    }
+
 }
 /**
  * Created by PhpStorm.
