@@ -12,12 +12,14 @@ use Carbon\Carbon;
 class ArticlesController extends Controller
 {
     public function index(){
-        $articles= Article::latest('published_at')->get();
+        $articles= Article::latest('published_at')->Unpublished()->get();
 
         return view('articles.index',compact('articles'));
     }
     public function show($id){
         $articles=Article::findorFail($id);
+
+        dd($articles->published_at);
 
         return view('articles.show',compact('articles'));
     }
@@ -28,10 +30,9 @@ class ArticlesController extends Controller
 
     public function store(){
 
-        $input =Request::all();
+        Article::create(Request::all());
 
-        $input['published_at']=Carbon::now();
-        Article::create($input);
         return redirect('articles');
     }
+
 }
