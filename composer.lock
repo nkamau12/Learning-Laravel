@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d1ca60e81e0d67a84bff9586a9082083",
-    "content-hash": "6b204a4ea457799c5a02fafc30becbcc",
+    "hash": "9dc642fa0426fb16808bf3fe25b6d1e4",
+    "content-hash": "505f1de9cef7a1051c3d66ad7bb282e5",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -620,6 +620,52 @@
             "time": "2014-09-09 13:34:57"
         },
         {
+            "name": "illuminate/html",
+            "version": "v5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/html.git",
+                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/html/zipball/3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
+                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "~5.0",
+                "illuminate/session": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Html\\": ""
+                },
+                "files": [
+                    "helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "time": "2015-01-01 16:31:18"
+        },
+        {
             "name": "jakub-onderka/php-console-color",
             "version": "0.1",
             "source": {
@@ -892,6 +938,56 @@
                 "laravel"
             ],
             "time": "2015-11-03 16:32:33"
+        },
+        {
+            "name": "laravelcollective/html",
+            "version": "v5.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "5ad8377968ba3b4da91fc60ca98b2eef4df380fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/5ad8377968ba3b4da91fc60ca98b2eef4df380fc",
+                "reference": "5ad8377968ba3b4da91fc60ca98b2eef4df380fc",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "5.1.*",
+                "illuminate/routing": "5.1.*",
+                "illuminate/session": "5.1.*",
+                "illuminate/support": "5.1.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                }
+            ],
+            "time": "2015-11-06 18:14:38"
         },
         {
             "name": "league/flysystem",
@@ -1192,20 +1288,23 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.0.10",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "2fa50aa2f17066fa74ba00d943e8cee1a98284af"
+                "reference": "19f765b66c6fbb56ee3b11bc16d52e38eebdc295"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/2fa50aa2f17066fa74ba00d943e8cee1a98284af",
-                "reference": "2fa50aa2f17066fa74ba00d943e8cee1a98284af",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/19f765b66c6fbb56ee3b11bc16d52e38eebdc295",
+                "reference": "19f765b66c6fbb56ee3b11bc16d52e38eebdc295",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*|5.*"
             },
             "suggest": {
                 "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
@@ -1233,7 +1332,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2015-10-23 13:21:37"
+            "time": "2015-11-10 00:45:41"
         },
         {
             "name": "psr/log",
