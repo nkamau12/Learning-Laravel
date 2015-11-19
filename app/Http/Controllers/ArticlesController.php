@@ -14,6 +14,10 @@ class ArticlesController extends Controller
      *
      * @return view articles
      */
+    public function __construct(){
+        $this->middleware('auth',['except'=>'index']);
+    }
+
     public function index(){
         $articles= Article::latest('published_at')->Published()->get();
 
