@@ -40,6 +40,9 @@ class ArticlesController extends Controller
 
         Auth::user()->articles()->save(new Article($request->all()));
 
+        //session()->flash('flash_message','Your article has been created');
+        //session()->flash('flash_message_important','Your article has been created');
+        flash()->overlay('your article has been created','good job');
         return redirect('articles');
     }
 
