@@ -23,10 +23,10 @@ class ArticlesController extends Controller
 
         return view('articles.index',compact('articles'));
     }
-    public function show($id){
-        $articles=Article::findorFail($id);
+    public function show(Article $article){
+        //$articles=Article::findorFail($id);
 
-        dd($articles->published_at);
+        //dd($articles->published_at);
 
         return view('articles.show',compact('articles'));
     }
@@ -43,13 +43,13 @@ class ArticlesController extends Controller
         return redirect('articles');
     }
 
-    public function edit($id){
-        $article=Article::findorFail($id);
+    public function edit(Article $article){
+        //$article=Article::findorFail($id);
         return view('articles.edit',compact('article'));
     }
 
-    public function update($id, ArticleRequest $request){
-        $article=Article::findOrFail($id);
+    public function update(Article $article, ArticleRequest $request){
+        //$article=Article::findOrFail($id);
         $article->update($request->all());
         return redirect('articles');
     }
