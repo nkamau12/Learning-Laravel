@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Http\Requests;
 use App\Http\Requests\ArticleRequest;
+use App\Tag;
 use Illuminate\Support\Facades\Auth;
 
 class ArticlesController extends Controller
@@ -26,34 +27,51 @@ class ArticlesController extends Controller
     public function show(Article $article){
         //$articles=Article::findorFail($id);
 
-        //dd($articles->published_at);
+        //dd($article->body);
 
-        return view('articles.show',compact('articles'));
+        return view('articles.show',compact('article'));
     }
 
     public function create(){
-        return view('articles.create');
+        $tags = Tag::lists('name','id');
+
+        return view('articles.create',compact('tags'));
     }
 
 
     public function store(ArticleRequest $request){
 
-        Auth::user()->articles()->save(new Article($request->all()));
 
+        $this->createArticle($request);
         //session()->flash('flash_message','Your article has been created');
         //session()->flash('flash_message_important','Your article has been created');
-        flash()->overlay('your article has been created','good job');
+        //flash()->overlay('your article has been created','good job');
+        flash('Your article has been saved successfully');
         return redirect('articles');
+    }
+
+    private function createArticle(ArticleRequest $request){
+        $article = Auth::user()->articles()->create($request->all());
+        $this->syncTags($request->input('tag_list'),$article);
+        return $article;
+    }
+
+    private function syncTags(array $tags,Article $article){
+        $article->tags()->sync($tags);
     }
 
     public function edit(Article $article){
         //$article=Article::findorFail($id);
-        return view('articles.edit',compact('article'));
+        $tags = Tag::lists('name','id');
+        return view('articles.edit',compact('article','tags'));
+
     }
 
     public function update(Article $article, ArticleRequest $request){
         //$article=Article::findOrFail($id);
-        $article->update($request->all());
+
+        $this->syncTags($request->input('tag_list'),$article);
+
         return redirect('articles');
     }
 }

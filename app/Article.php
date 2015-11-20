@@ -39,4 +39,17 @@ class Article extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+
+    /**
+     * get tag associated with the given article
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tags(){
+        return $this->belongsToMany('App\Tag',"article_tags","tags_id","article_id")->withTimestamps();
+    }
+
+    public function getTagListAttribute(){
+        return $this->tags->lists('id')->toArray();
+    }
 }
